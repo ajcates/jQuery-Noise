@@ -3,7 +3,7 @@
 		noisy : function(params) {
 			return $.extend({
 				noiseMaker : $.extend({
-					opacity : .1,
+					opacity : .05,
 					width : 100,
 					amount : 70,
 					color: function() {
