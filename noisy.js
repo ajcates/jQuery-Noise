@@ -4,7 +4,7 @@
 			return $.extend({
 				noiseMaker : $.extend({
 					opacity : .05,
-					width : 100,
+					width : 20,
 					amount : 70,
 					color: function() {
 						return this.caller.css("background-color");
