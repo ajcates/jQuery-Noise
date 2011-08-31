@@ -1,5 +1,7 @@
-jQuery-Noise Plugin Originally Written By the Forrst Users @dhotson & @ajcates.
+jQuery-Noise Plugin Originally Written By the Forrst Users @dhotson & @ajcates. 
 ===============================================================================
+
+Monochromatic option contributed by Alan Hogan.
 
 Authors:
 --------
@@ -25,6 +27,15 @@ Authors:
 	:	@dennishotson
 	- Tumblr
 	:	http://ajcates.tumblr.com
+	
+@alanhogan
+:	"Alan Hogan"
+	- Email
+	:	contact@alanhogan.com
+	- Twitter
+	:	@alanhogan
+	- Web
+	:	http://alanhogan.com/
 	
 
 License:
