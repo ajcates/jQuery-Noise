@@ -5,7 +5,7 @@
 				noiseMaker : $.extend({
 					opacity : .05,
 					width : 20,
-					amount : 70,
+					brightness : 70,
 					monochromatic : false,
 					color: function() {
 						return this.caller.css("background-color");
@@ -34,9 +34,9 @@
 						for (x=0; x<canvas.width; x += 1) {
 							for (y=0; y<canvas.height; y += 1) {
 								ctx.fillStyle = "rgba(" + [
-									Math.floor(this.rand() * r + this.amount), 
-									Math.floor(this.rand() * g + this.amount), 
-									Math.floor(this.rand() * b + this.amount),
+									Math.floor(this.rand() * r + this.brightness), 
+									Math.floor(this.rand() * g + this.brightness), 
+									Math.floor(this.rand() * b + this.brightness),
 									this.opacity
 								].join(",") + ")";
 								ctx.fillRect(x, y, 1, 1);

@@ -30,7 +30,7 @@ Parameters:
 :	Used for tinting the noise a certain color. Takes a string formatted like "rgb(255,255,255)" or a function that returns a string like that. By default this returns the items current `background-color`.
 - monochromatic
 :	Whether the generated noise should be monochromatic (`true`) or not. If `false`, the red, green, and blue channels are randomized independently. Default: `false`.
-- amount
+- brightness
 :	A number usually around 70 that adds some brightness to the colors so they aren't all dark.
 - width
 :	How wide you want the `background-image` tile set at. If your noise looks to uniform make this number bigger.
