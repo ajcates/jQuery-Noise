@@ -7,9 +7,9 @@
 	<meta name="description" content="A demo of the noisy jQuery plugin.">
 	<style type="text/css" media="screen">
 		.noise {
-			width: 250px;
+			width: 300px;
 			height: 250px;
-			background: #999;
+			background-color: #999;
 			margin: 12px;
 			float: left;
 			padding: 12px;
@@ -33,7 +33,7 @@
 		</div>
 		<div id="opacity" class="noise">
 			<code>$("#opacity").noisy({
-	opacity : .1
+	opacity : .5
 });</code>
 		</div>
 		<div id="color" class="noise">
@@ -61,15 +61,16 @@
 		</div>
 	</div>
 	<footer>
-		<p>Created by: <a href="http://ajcates.com">ajcates</a>, <a href="http://dhotson.tumblr.com/">dhouston</a>, &amp; <a href="http://alanhogan.com/">alanhogan</a>. MIT Licensed, see <a href="License.md">License.md</a> for more info.</p>
+		<p>Created by: <a href="http://ajcates.com">ajcates</a>, <a href="http://dhotson.tumblr.com/">dhouston</a>, &amp; <a href="http://alanhogan.com/">alanhogan</a>. MIT Licensed please see <a href="License.md">License.md</a> for more info.</p>
 	</footer>
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 	<script src="noisy.js"></script>
 	<script>
 		$(function() {
+			console.log($("#default")[0].style.backgroundColor);
 			$("#default").noisy();
 			$("#opacity").noisy({
-				opacity : .1
+				opacity : .5
 			});
 			$("#color").noisy({
 				color : 'rgb(250, 20, 20)'
