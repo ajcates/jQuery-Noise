@@ -1,63 +1,93 @@
-(function($) {
-	$.fn.extend({
-		noisy : function(params) {
-			return $.extend({
-				noiseMaker : $.extend({
-					opacity : .1,
-					width : 20,
-					brightness : 70,
-					monochromatic : false,
-					color: function() {
-						return this.caller.css("background-color");
-					},
-					bringNoise : function() {
-						var x, y,
-							canvas = $("<canvas>", {width: this.width, height:this.width })[0],
-							ctx = canvas.getContext("2d"),
-							colorArr = ($.isFunction(this.color) ?  this.color() : this.color).replace(/(rgb\(|rgba\(|\))/gi, "").split(",").map($.trim),
-							r = colorArr[0], g = colorArr[1], b = colorArr[2];
-							console.log(colorArr);
-						if (this.monochromatic) {
-						 	for (x=0; x<canvas.width; x += 1) {
-						 	   	for (y=0; y<canvas.height; y += 1) {
-							 	   	rand = Math.random();
-						 	   		ctx.fillStyle = "rgba(" + [
-						 	   			Math.floor(rand * r + this.brightness), 
-						 	   			Math.floor(rand * g + this.brightness), 
-						 	   			Math.floor(rand * b + this.brightness),
-						 	   			this.opacity
-						 	   		].join(",") + ")";
-						 	   		ctx.fillRect(x, y, 1, 1);
-						 	   	}
-						 	}   
-						} else {
-							for (x=0; x<canvas.width; x += 1) {
-								for (y=0; y<canvas.height; y += 1) {
-									ctx.fillStyle = "rgba(" + [
-										Math.floor(Math.random() * r + this.brightness), 
-										Math.floor(Math.random() * g + this.brightness), 
-										Math.floor(Math.random() * b + this.brightness),
-										this.opacity
-									].join(",") + ")";
-									ctx.fillRect(x, y, 1, 1);
-								}
-							}
-						}
-						return canvas.toDataURL("image/png");
-					},
-					go : function(caller) {
-						this.caller = caller;
-						if("HTMLCanvasElement" in window) {
-							var noise = this.bringNoise();
-							return caller.css("background-image", function(i, val) {
-								return "url("+noise+")" + ", " + val;
-							});
-						} else {
-							return caller.css("background-image");
-						}
-					}
-				}, params)
-			}).noiseMaker.go(this);
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>jQuery Noisy Plugin Demo</title>
+	<meta name="description" content="A demo of the noisy jQuery plugin.">
+	<style type="text/css" media="screen">
+		.noise {
+			width: 300px;
+			height: 250px;
+			background-color: #999;
+			margin: 12px;
+			float: left;
+			padding: 12px;
 		}
-	});
-})(jQuery);
+		code {
+			white-space: pre;
+		}
+		footer {
+			clear: both;
+		}
+	</style>
+</head>
+<body>
+	<header>
+		<h1>jQuery Noisy Plugin Demo</h1>
+		<h3><a href="https://github.com/ajcates/jQuery-Noise">Fork on github</a> and <a href="http://forrst.com/posts/Improved_jQuery_Noise_Plugin-7Nk">like on Forrst</a>.</h3>
+	</header>
+	<div role="main">
+		<div id="default" class="noise">
+			<code>$("#default").noisy();</code>
+		</div>
+		<div id="opacity" class="noise">
+			<code>$("#opacity").noisy({
+	opacity : .5
+});</code>
+		</div>
+		<div id="color" class="noise">
+			<code>$("#color").noisy({
+	color : 'rgb(250, 20, 20)'
+});</code>
+		</div>
+		<div id="monochromatic" class="noise">
+			<code>$("#monochromatic").noisy({
+	monochromatic : true
+});</code>
+		</div>
+		<div id="brightness" class="noise">
+			<code>$("#brightness").noisy({
+	brightness : 120
+});</code>
+		</div>
+		<div id="multiple" class="noise">
+			<code>$("#multiple").noisy({
+	opacity : .3,
+	color: 'rgb(40, 200, 40)',
+	monochromatic: false,
+	brightness: 100
+});</code>
+		</div>
+	</div>
+	<footer>
+		<p>Created by: <a href="http://ajcates.com">ajcates</a>, <a href="http://dhotson.tumblr.com/">dhouston</a>, &amp; <a href="http://alanhogan.com/">alanhogan</a>. MIT Licensed please see <a href="License.md">License.md</a> for more info.</p>
+	</footer>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<script src="noisy.js"></script>
+	<script>
+		$(function() {
+			console.log($("#default")[0].style.backgroundColor);
+			$("#default").noisy();
+			$("#opacity").noisy({
+				opacity : .5
+			});
+			$("#color").noisy({
+				color : 'rgb(250, 20, 20)'
+			});
+			$("#monochromatic").noisy({
+				monochromatic : true
+			});
+			$("#brightness").noisy({
+				brightness : 140
+			});
+			$("#multiple").noisy({
+				opacity : .3,
+				color: 'rgb(40, 200, 40)',
+				monochromatic: false,
+				brightness: 100
+			});
+		})
+	</script>
+</body>
+</html>
