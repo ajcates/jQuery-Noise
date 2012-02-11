@@ -5,6 +5,11 @@ Written By the [Forrst](http://forrst.com) Users [@dhotson](http://forrst.com/pe
 
 This plugin will insert a semi transparent noise image into your elements `background-images`. The image is generated using canvas then exported out with `toDataURL()`.
 
+Demo:
+-----
+
+There is a [demo on jsFiddle here](http://jsfiddle.net/aYQFD/). 
+
 How to use:
 -----------
 
