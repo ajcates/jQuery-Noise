@@ -6,8 +6,24 @@
 					opacity : .05,
 					width : 20,
 					amount : 70,
+					monochromatic : false,
 					color: function() {
 						return this.caller.css("background-color");
+					},
+					randCtr: 1,
+					lastRand: 0.0,
+					rand: function() {
+					  if (this.monochromatic) {
+					    this.randCtr--; 
+  					  if (!this.randCtr) {
+					      this.randCtr += 3;
+					      return (this.lastRand = Math.random());
+  					  } else {
+  					    return this.lastRand;
+  					  }
+					  } else {
+					    return Math.random();
+					  }
 					},
 					bringNoise : function() {
 						var x, y,
@@ -18,7 +34,9 @@
 						for (x=0; x<canvas.width; x += 1) {
 							for (y=0; y<canvas.height; y += 1) {
 								ctx.fillStyle = "rgba(" + [
-									Math.floor(Math.random() * r + this.amount), Math.floor(Math.random() * g + this.amount), Math.floor(Math.random() * b + this.amount),
+									Math.floor(this.rand() * r + this.amount), 
+									Math.floor(this.rand() * g + this.amount), 
+									Math.floor(this.rand() * b + this.amount),
 									this.opacity
 								].join(",") + ")";
 								ctx.fillRect(x, y, 1, 1);
