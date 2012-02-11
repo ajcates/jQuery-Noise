@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>jQuery Noisy Plugin Demo</title>
+	<meta name="description" content="A demo of the noisy jQuery plugin.">
+	<style type="text/css" media="screen">
+		.noise {
+			width: 250px;
+			height: 250px;
+			background: #999;
+			margin: 12px;
+			float: left;
+			padding: 12px;
+		}
+		code {
+			white-space: pre;
+		}
+		footer {
+			clear: both;
+		}
+	</style>
+</head>
+<body>
+	<header>
+		<h1>jQuery Noisy Plugin Demo</h1>
+		<h3><a href="https://github.com/ajcates/jQuery-Noise">Fork on github</a> and <a href="http://forrst.com/posts/Improved_jQuery_Noise_Plugin-7Nk">like on Forrst</a>.</h3>
+	</header>
+	<div role="main">
+		<div id="default" class="noise">
+			<code>$("#default").noisy();</code>
+		</div>
+		<div id="opacity" class="noise">
+			<code>$("#opacity").noisy({
+	opacity : .1
+});</code>
+		</div>
+		<div id="color" class="noise">
+			<code>$("#color").noisy({
+	color : 'rgb(250, 20, 20)'
+});</code>
+		</div>
+		<div id="monochromatic" class="noise">
+			<code>$("#monochromatic").noisy({
+	monochromatic : true
+});</code>
+		</div>
+		<div id="amount" class="noise">
+			<code>$("#amount").noisy({
+	amount : 120
+});</code>
+		</div>
+		<div id="multiple" class="noise">
+			<code>$("#multiple").noisy({
+	opacity : .3,
+	color: 'rgb(40, 200, 40)',
+	monochromatic: false,
+	amount: 100
+});</code>
+		</div>
+	</div>
+	<footer>
+		<p>Created by: <a href="http://ajcates.com">ajcates</a>, <a href="http://dhotson.tumblr.com/">dhouston</a>, &amp; <a href="http://alanhogan.com/">alanhogan</a>. MIT Licensed, see <a href="License.md">License.md</a> for more info.</p>
+	</footer>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<script src="noisy.js"></script>
+	<script>
+		$(function() {
+			$("#default").noisy();
+			$("#opacity").noisy({
+				opacity : .1
+			});
+			$("#color").noisy({
+				color : 'rgb(250, 20, 20)'
+			});
+			$("#monochromatic").noisy({
+				monochromatic : true
+			});
+			$("#amount").noisy({
+				amount : 140
+			});
+			$("#multiple").noisy({
+				opacity : .3,
+				color: 'rgb(40, 200, 40)',
+				monochromatic: false,
+				amount: 100
+			});
+		})
+	</script>
+</body>
+</html>
